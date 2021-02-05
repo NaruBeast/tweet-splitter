@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Tweet Splitter | Disclaimer</title>
+{% endblock %}
+
+{% block body %}
+<article id="post-108" class="post-108 page type-page status-publish hentry">
+    <header class="entry-header">
+        <h1 class="entry-title">Disclaimer</h1>
+    </header>
+
+    <div class="entry-content">
+        <p>This web app is a hobby project and has been developed as a means to get a hands-on on the web microframework Flask.
+        As such, little to no thought has been put into the security of the app.
+        </p>
+        <p>Any user browsing and interacting on this web app and NOT logging in via your Twitter account ideally should not have any cause for concern</p>
+        <p>This is primarily important for you if you choose to login via your Twitter account on this web app.</br>
+        You should particularly refrain from logging into Twitter on this app if you are using a shared device.</br>
+        If you understand the risks and choose to login regardless,
+        be sure to <a href="/logout">logout</a> and clear your browser cookies and cache when you exit this app.
+        If you happen to be a more advanced user, consider revoking access to this app from your
+        <a target="_blank" href="https://twitter.com/settings/connected_apps">Twitter Account Settings.</a></p>
+        <p>We also do not store or process your information on our servers or databases. We shall not be
+            held accountable for any loss regardless of its nature arising from the use of this app.
+        </p>
+        <p>That said, Thank You for reading and being awesome!</p>
+        <a class="btn btn-primary" href="/">Take Me Home</a>
+    </div>
+</article>
+{% endblock %}

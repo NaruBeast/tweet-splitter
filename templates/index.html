@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Tweet Splitter</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="bg-light p-5 rounded">
+  <div class="col-sm-8 mx-auto">
+    <h1 style='text-align:center'>Tweet Splitter</h1>
+    </br>
+    {% if tweets == [] %}
+    <p>This app helps you split a LARGE body of text into Tweetable Chunks</br>
+      And guess what, you can directly post them on Twitter from within the app!</p>
+    <p>Before you proceed, we recommend you to read our <a href="/disclaimer">Disclaimer</a> to be more aware
+      of the risks when you sign in with your Twitter account on this app</p>
+    <form action="/" method="POST">
+      <div class="form-group">
+        <label for="content">Enter your text below:</label>
+        <textarea class="form-control" name="tweet_content" id="content" rows="8"
+          placeholder="Tweet Content"></textarea>
+      </div>
+      </br>
+      <div class="text-center"><input type="submit" class="btn btn-primary text-center" value="Split It!"></div>
+    </form>
+
+    {% else %}
+    <table class="table table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Tweet(s)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in range(tweets|length) %}
+        <tr>
+          <th scope="row">{{i+1}}</th>
+          <td>{{tweets[i]}}</td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+    <form action="/tweet">
+      <div class="text-center"><input type="submit" class="btn btn-info text-center text-white" value="Tweet It{% if 'username' in session %} via @{{session['username']}}{% endif %}!"/></div>
+    </form>
+    </br>
+    <form action="/">
+      <div class="text-center"><input type="submit" class="btn btn-primary text-center" value="Or Try Again!"/></div>
+    </form>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
